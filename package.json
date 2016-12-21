@@ -1,7 +1,7 @@
 {
-  "name": "mesour-selection",
-  "version": "0.1.2",
-  "description": "Mesour selection component",
+  "name": "mesour-modal",
+  "version": "0.1.0",
+  "description": "Mesour modal component",
   "main": "index.js",
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -23,7 +23,7 @@
     "watch:js": "webpack --progress --colors --watch"
   },
   "keywords": [
-    "selection"
+    "modal"
   ],
   "author": "Matouš Němec (http://mesour.com)",
   "dependencies": {
