@@ -7,7 +7,12 @@ export default class Modal
 	{
 		if (typeof modal === 'string') {
 			if (!this.modals[modal]) {
-				throw new Error('Modal "' + modal + '" not exist.');
+				let el = jQuery('[data-mesour-modal="' + modal + '"]');
+				if (!el) {
+					throw new Error('Modal "' + modal + '" not exist.');
+				} else {
+					this.live();
+				}
 			}
 			return this.modals[modal];
 		}
@@ -49,7 +54,14 @@ export default class Modal
 	{
 		modal = this.getModal(modal);
 		modal.off('hide.bs.modal.mesour-editable');
-		return this.getModal(modal).on('hide.bs.modal.mesour-editable', callback);
+		return modal.on('hide.bs.modal.mesour-editable', callback);
+	}
+
+	onShown(modal, callback)
+	{
+		modal = this.getModal(modal);
+		modal.off('shown.bs.modal.mesour-editable');
+		return modal.on('shown.bs.modal.mesour-editable', callback);
 	}
 
 	show(modal, callback)

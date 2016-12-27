@@ -35,6 +35,12 @@ if (isset($_GET['m_do'])) {
 
 	<script>
 		$(function () {
+			window.mesour = window.mesour || {};
+			window.mesour.modal = window.mesour.modal || [];
+			window.mesour.modal.push(['onShown', 'mesourApp-testModal', function() {
+				alert('On shown');
+			}]);
+
 			$(document).on('click', '[data-modal-show]', function (e) {
 				e.preventDefault();
 
