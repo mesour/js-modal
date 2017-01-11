@@ -23,26 +23,31 @@ export default class Modal
 	{
 		let _this = this;
 		jQuery('[data-mesour-modal]').each(function () {
-			let $modal = jQuery(this),
-				show = $modal.attr('data-mesour-show'),
-				name = $modal.attr('data-mesour-modal');
-
-			if ($modal.data('_m-initialized')) {
-				return;
-			}
-
-			$modal.modal();
-			_this.modals[name] = $modal;
-			$modal.data('_m-initialized', true);
-			if (show === 'true') {
-				_this.show($modal);
-			}
+			_this.create(jQuery(this));
 		});
 	}
 
 	delete(modal)
 	{
 		delete this.modals[modal];
+	}
+
+	create(modal)
+	{
+		let $modal = this.getModal(modal),
+			show = $modal.attr('data-mesour-show'),
+			name = $modal.attr('data-mesour-modal');
+
+		if ($modal.data('_m-initialized')) {
+			return;
+		}
+
+		$modal.modal();
+		this.modals[name] = $modal;
+		$modal.data('_m-initialized', true);
+		if (show === 'true') {
+			this.show($modal);
+		}
 	}
 
 	getBody(modal)
