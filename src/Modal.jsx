@@ -52,7 +52,7 @@ export default class Modal
 
 	getBody(modal)
 	{
-		return this.getModal(modal).find('[mesour-modal-body]');
+		return this.getModal(modal).find('[data-mesour-modal-body]');
 	}
 
 	onHide(modal, callback)
@@ -72,7 +72,7 @@ export default class Modal
 	show(modal, callback)
 	{
 		modal = this.getModal(modal);
-		let modalBody = modal.find('[mesour-modal-body]'),
+		let modalBody = modal.find('[data-mesour-modal-body]'),
 			ajaxLoading = modalBody.attr('data-ajax-loading'),
 			isCached = modalBody.attr('data-is-cached') === 'true' ? true : false;
 
@@ -106,7 +106,7 @@ export default class Modal
 
 		modal.modal('hide');
 
-		let modalBody = modal.find('[mesour-modal-body]'),
+		let modalBody = modal.find('[data-mesour-modal-body]'),
 			ajaxLoading = modalBody.attr('data-ajax-loading'),
 			isCached = modalBody.attr('data-is-cached') === 'true' ? true : false;
 
